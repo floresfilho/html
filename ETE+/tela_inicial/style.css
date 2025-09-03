@@ -1,0 +1,132 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+:root {
+    --primary-color: #263a99;
+    --bkg-color: #d3d3d3;
+    --btn-color: #191970;
+    --btn-hover-color: #1b52d7;
+    --shadow-color: #2d5fff;
+    --border-radius-md: 12px;
+    --spacing-md: 1.5rem;
+    --spacing-lg: 2rem;
+}
+
+body {
+    background-color: var(--bkg-color);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body::before {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.8);
+}
+
+.split-container {
+    display: flex;
+    width: 70%;
+    height: 500px;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+/* Lado esquerdo - vidro fosco (glassmorphism) */
+.left-side {
+    flex: 1.5;
+    padding: var(--spacing-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: #e5e5e5;
+    backdrop-filter: blur(1px);
+}
+
+.left-side h1 {
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.left-side h2 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: var(--spacing-md);
+    text-align: center;
+}
+
+/* Lado direito - imagem */
+.right-side {
+    flex: 1.5;
+    position: relative;
+    border-radius: var(--border-radius-md);
+    overflow: hidden;
+}
+
+.right-side img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.right-side:hover img {
+    transform: scale(1.05);
+}
+
+.right-side::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(189, 189, 189, 0.105), rgba(0, 42, 255, 0.189));
+}
+
+/* Botões */
+.button {
+    display: inline-block;
+    text-align: center;
+    background-color: var(--btn-color);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 16px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.5s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.button+.button {
+    margin-top: 14px;
+}
+
+.button:hover {
+    background-color: var(--btn-hover-color);
+    transform: translateY(-3px);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .split-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .right-side {
+        height: 250px;
+    }
+
+    .left-side {
+        border-radius: var(--border-radius-md);
+        border-right: none;
+    }
+}

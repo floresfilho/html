@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>Login - ETE+</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Login</h2>
+
+        <form id="loginForm">
+            <label for="email" class="visually-hidden">Email</label>
+            <input type="email" id="email" placeholder="Email" required>
+            
+            <label for="senha" class="visually-hidden">Senha</label>
+            <div class="senha-container">
+                <input type="password" id="senha" placeholder="Senha">
+                <i id="toggleSenha" class="fa-solid fa-eye icone-senha"></i>
+            </div>
+
+            <button type="submit" class="button">Entrar</button>
+            <a href="../recuperacao-senha/index.html" class="senha-link">Esqueceu a senha?</a>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

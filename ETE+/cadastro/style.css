@@ -1,0 +1,152 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Variáveis CSS (Custom Properties) - Definidas no elemento raiz para uso global */
+:root {
+    /* Cores */
+    --background-light: #f8f8ff;
+    --container-bg: white;
+    --primary-color: #191970; /* Cor principal de texto/botão (azul escuro) */
+    --secondary-text-color: #555; /* Cor para textos secundários (cinza escuro) */
+    --link-color: #007bff; /* Cor para links (azul claro) */
+    --button-hover-color: #0056b3; /* Cor do botão ao passar o mouse */
+    --border-color: #ccc; /* Cor da borda dos inputs */
+    --shadow-color: rgba(0, 0, 0, 0.1); /* Cor da sombra do container */
+
+    /* Espaçamentos */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+
+    /* Border Radius */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+
+    /* Font Sizes */
+    --font-size-sm: 0.9rem;
+    --font-size-md: 1rem;
+    --font-size-lg: 1.5rem;
+    --font-size-xl: 1.8rem;
+}
+
+/* Centraliza tudo na tela */
+body {
+    background-color: var(--background-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Use min-height para permitir que o conteúdo empurre o body se necessário */
+    padding: var(--spacing-sm); /* Adiciona um pequeno padding para telas muito pequenas */
+}
+
+/* Container principal do formulário */
+.container {
+    background: var(--container-bg);
+    padding: var(--spacing-lg); /* 2rem = 32px */
+    border-radius: var(--border-radius-md); /* 12px */
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+}
+
+/* Título do formulário (Cadastre-se) */
+h2 {
+    text-align: center;
+    margin-bottom: var(--spacing-md); /* 1.5rem = 24px */
+    font-size: var(--font-size-lg); /* 1.5rem = 24px */
+    color: var(--primary-color);
+}
+
+/* Estilo para os campos de input de texto, email e senha */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px 12px; /* Top/Bottom: 10px, Left/Right: 12px */
+    margin-bottom: var(--spacing-sm); /* 1rem = 16px */
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-sm); /* 8px */
+    font-size: var(--font-size-md); /* 1rem = 16px */
+    box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura */
+}
+
+/* Container para o campo de senha e ícone */
+.senha-container {
+    position: relative;
+    display: flex; /* Para alinhar o input e o ícone se houver outros elementos */
+    align-items: center; /* Alinha verticalmente os itens */
+    margin-bottom: var(--spacing-sm); /* Espaçamento abaixo do container de senha */
+}
+
+.senha-container input {
+    width: 100%;
+    padding-right: 40px; /* Espaço para o ícone */
+    /* As outras propriedades de input já são aplicadas pelo seletor geral de inputs */
+}
+
+/* Estilo para o ícone de mostrar/esconder senha */
+.icone-senha {
+    position: absolute;
+    right: 12px;
+    top: 40%; /* Ajustado de 40% para 50% para centralização perfeita */
+    transform: translateY(-50%); /* Centraliza verticalmente */
+    color: var(--link-color);
+    cursor: pointer;
+    font-size: var(--font-size-md); /* 1rem = 16px, para consistência com outras fontes */
+}
+
+/* Estilo para o Checkbox e seu Label */
+form label { /* Aplica-se ao label que envolve o checkbox e seu texto */
+    display: flex;
+    align-items: flex-start; /* Ajustado para alinhar o texto com o topo do checkbox */
+    font-size: var(--font-size-sm); /* 0.9rem */
+    margin-bottom: var(--spacing-sm); /* 1rem */
+    color: var(--secondary-text-color);
+    line-height: 1.4; /* Melhora a leitura do texto */
+}
+
+input[type="checkbox"] {
+    margin-right: var(--spacing-xs); /* 0.5rem = 8px */
+    /* Você pode adicionar mais estilos de checkbox aqui se quiser customizar a aparência */
+    flex-shrink: 0; /* Impede que o checkbox encolha */
+    margin-top: var(--spacing-sm); /* Pequeno ajuste para alinhar o checkbox com o texto */
+}
+
+/* Botão de Concluir Cadastro */
+.button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 0.75rem 1rem; /* Aumentei um pouco o padding para botões */
+    font-size: var(--font-size-md); /* 1rem = 16px */
+    border: none;
+    border-radius: var(--border-radius-sm); /* 8px */
+    cursor: pointer;
+    width: 100%;
+    margin-top: var(--spacing-sm); /* 1rem = 16px */
+    transition: background 0.2s ease;
+    display: block; /* Garante que o botão ocupe sua própria linha */
+    text-align: center; /* Centraliza o texto do botão */
+    text-decoration: none; /* Remove sublinhado se for um <a> com classe button */
+}
+
+.button:hover {
+    background-color: var(--button-hover-color);
+}
+
+/* Classe para elementos visualmente ocultos (para acessibilidade) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}

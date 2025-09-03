@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Cadastro - ETE+</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Cadastre-se</h2>
+
+        <form id="cadastroForm">
+            <label for="nome" class="visually-hidden">Nome</label>
+            <input type="text" id="nome" placeholder="Nome" required>
+            
+            <label for="email" class="visually-hidden">Email</label>
+            <input type="email" id="email" placeholder="Email" required>
+            
+            <label for="senha" class="visually-hidden">Senha</label>
+            <div class="senha-container">
+                <input type="password" id="senha" placeholder="Senha" required>
+                <i id="toggleSenha" class="fa-solid fa-eye icone-senha"></i>
+            </div>
+
+            <label for="newsletter">
+                <input type="checkbox" id="newsletter">
+                Gostaria de receber sua newsletter e outras informações através do meu email.
+            </label>
+            <label for="LGPD">
+                <input type="checkbox" id="LGPD">
+                Aceito os Termos de Serviço e Política de Privacidade.
+            </label>
+
+            <button type="submit" class="button">Concluir cadastro</button>
+        </form>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

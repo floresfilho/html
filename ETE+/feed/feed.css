@@ -1,0 +1,150 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+/* Variáveis CSS (Custom Properties) - Definidas no elemento raiz para uso global */
+:root {
+    /* Cores */
+    --background-light: #f8f8ff; /* Usado na tela inicial/login */
+    --background-feed: #f4f4f4; /* Cor de fundo específica para o feed */
+    --container-bg: white;
+    --primary-color: #191970; /* Cor principal de texto/botão (azul escuro) */
+    --secondary-text-color: #555; /* Cor para textos secundários (cinza escuro) */
+    --link-color: #007bff; /* Cor para links (azul claro) */
+    --button-hover-color: #0056b3; /* Cor do botão ao passar o mouse */
+    --border-color: #ccc; /* Cor da borda dos inputs */
+    --shadow-color-light: rgba(0, 0, 0, 0.1); /* Sombra mais forte para containers principais */
+    --shadow-color-card: rgba(0, 0, 0, 0.05); /* Sombra mais leve para cards */
+    --text-color-dark: #333; /* Cor para texto principal em cards */
+    --text-color-light: #999; /* Cor para textos menores/secundários */
+
+    /* Espaçamentos */
+    --spacing-xs: 0.5rem;   /* 8px */
+    --spacing-sm: 1rem;     /* 16px */
+    --spacing-md: 1.5rem;   /* 24px */
+    --spacing-lg: 2rem;     /* 32px */
+    --spacing-xl: 3rem;     /* 48px */
+
+    /* Border Radius */
+    --border-radius-sm: 8px;
+    --border-radius-md: 12px;
+    --border-radius-lg: 15px; /* Para cards de postagem */
+    --border-radius-circle: 50%;
+
+    /* Font Sizes */
+    --font-size-xs: 0.8rem;   /* 12.8px */
+    --font-size-sm: 0.95rem;  /* 15.2px (para textos de parágrafo) */
+    --font-size-md: 1rem;     /* 16px */
+    --font-size-lg: 1.4rem;   /* 22.4px (para títulos de header) */
+    --font-size-xl: 1.5rem;   /* 24px (para botão nova postagem) */
+}
+
+body {
+    background-color: var(--background-feed); /* Usando a nova variável de fundo */
+    padding: var(--spacing-sm); /* 1rem (16px) */
+    min-height: 100vh; /* Para permitir rolagem se o conteúdo for grande */
+}
+
+/* Container principal do feed */
+.feed-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: var(--spacing-xs); /* Pequeno padding interno para evitar grudar nas bordas em mobile */
+}
+
+/* Cabeçalho do feed */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md); /* 1.5rem = 24px */
+    padding: var(--spacing-sm) 0; /* Padding vertical para espaçamento do header */
+    border-bottom: 1px solid #eee; /* Linha sutil para separar o header */
+}
+
+header h2 {
+    font-size: var(--font-size-lg); /* 1.4rem = 22.4px */
+    color: var(--primary-color);
+}
+
+/* Botão de nova postagem */
+#novaPostagem {
+    background-color: var(--link-color); /* Usando a cor de link para o botão + */
+    color: var(--container-bg); /* Cor branca para o texto/ícone */
+    border: none;
+    font-size: var(--font-size-xl); /* 1.5rem = 24px */
+    padding: 0.4rem 1rem;
+    border-radius: var(--border-radius-circle); /* 50% para um círculo perfeito */
+    cursor: pointer;
+    transition: background-color 0.2s ease; /* Transição suave para o hover */
+    display: flex; /* Para centralizar o '+' visualmente */
+    justify-content: center;
+    align-items: center;
+    height: 40px; /* Garante que seja um círculo se padding variar */
+    width: 40px;
+}
+
+#novaPostagem:hover {
+    background-color: var(--button-hover-color); /* Cor de hover consistente */
+}
+
+/* Estilo dos cards de postagem */
+.postagem {
+    background-color: var(--container-bg); /* Fundo branco */
+    padding: var(--spacing-sm); /* 1rem = 16px */
+    border-radius: var(--border-radius-lg); /* 15px */
+    margin-bottom: var(--spacing-sm); /* 1rem = 16px */
+    box-shadow: 0 0 8px var(--shadow-color-card); /* Sombra leve */
+}
+
+.postagem h3 {
+    font-size: 1.1rem; /* Mantido em rem, pode ser uma variável se for comum */
+    margin-bottom: 0.3rem;
+    color: var(--primary-color); /* Cor para títulos de postagem */
+}
+
+.postagem p {
+    color: var(--text-color-dark); /* #333 */
+    font-size: var(--font-size-sm); /* 0.95rem */
+    line-height: 1.5; /* Melhorar legibilidade de parágrafos */
+}
+
+.postagem .hora {
+    margin-top: var(--spacing-xs); /* 0.5rem = 8px */
+    font-size: var(--font-size-xs); /* 0.8rem = 12.8px */
+    color: var(--text-color-light); /* #999 */
+}
+
+/* Opcional: Estilos para mensagens de carregamento/sem posts, se você adicionar no HTML */
+.loading-message,
+.no-posts-message {
+    text-align: center;
+    color: var(--secondary-text-color);
+    margin-top: var(--spacing-xl);
+    font-size: var(--font-size-md);
+}
+
+/* No seu feed.css, adicione estilos para o botão de exclusão e o rodapé do card */
+.card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: var(--spacing-xs); /* Espaçamento entre conteúdo e rodapé */
+}
+
+.delete-post {
+    background-color: transparent; /* Sem fundo */
+    border: none;
+    color: #dc3545; /* Cor vermelha para indicar exclusão */
+    cursor: pointer;
+    font-size: var(--font-size-md);
+    transition: color 0.2s ease;
+}
+
+.delete-post:hover {
+    color: #c82333; /* Vermelho mais escuro no hover */
+}
